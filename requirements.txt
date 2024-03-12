@@ -9,3 +9,8 @@ scikit-image
 nibabel
 einops
 pandas
+torchio
+prefetch-generator
+connected-components-3d
+kornia
+opencv-python
