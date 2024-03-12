@@ -26,6 +26,17 @@ pip install -r requirements.txt
 ```
 
 
+**Test**
+
+put downloaded pretrained model under the implementation directory
+```
+python test.py --data colon --data_dir your_data_directory --split test --checkpoint best --save_name prism_pretrain --num_clicks 1 --iter_nums 11 --multiple_outputs --use_box --use_scribble --efficient_scribble --refine --refine_test
+```
+
+
+
+
+
 **FAQ**
 
 if you got the error as AttributeError: module 'cv2' has no attribute 'ximgproc', please check [this](https://stackoverflow.com/questions/57427233/module-cv2-cv2-has-no-attribute-ximgproc) out
