@@ -7,6 +7,10 @@ This repository is under construction
 
 The [pretrained PRISM](https://drive.google.com/drive/u/1/folders/1B6Df44Gd9PEBGPkE1FwC8Ds4jefCekUB) models and [datasets](https://drive.google.com/drive/folders/13uGNb2WQhSQcBQIUhnvYJere1LBYGDsW?usp=sharing) are uploaded.
 
+**News**
+
+reduce the number of arguments
+
 **Datasets**
 
 We used four public [datasets](https://drive.google.com/drive/folders/13uGNb2WQhSQcBQIUhnvYJere1LBYGDsW?usp=sharing) for colon, pancreas, liver and kidney tumor segmentation. Here are the links for the original datasets
@@ -24,6 +28,14 @@ pip install git+https://github.com/facebookresearch/segment-anything.git # insta
 pip install git+https://github.com/deepmind/surface-distance.git # for normalized surface dice (NSD) evaluation
 pip install -r requirements.txt
 ```
+
+
+**Train**
+
+```
+python train.py --data colon --data_dir your_data_directory --max_epoch --save_name test123 --num_clicks 50 --num_clicks_validation 10 --iter_nums 11 --multiple_outputs --dynamic --use_box --refine
+```
+
 
 
 **Test**
