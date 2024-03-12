@@ -5,6 +5,8 @@ PRISM: A Promptable and Robust Interactive Segmentation Model with Visual Prompt
 
 This repository is under construction
 
+The [pretrained PRISM](https://drive.google.com/drive/u/1/folders/1B6Df44Gd9PEBGPkE1FwC8Ds4jefCekUB) models and [datasets](https://drive.google.com/drive/folders/13uGNb2WQhSQcBQIUhnvYJere1LBYGDsW?usp=sharing) are uploaded.
+
 **Datasets**
 
 We used four public [datasets](https://drive.google.com/drive/folders/13uGNb2WQhSQcBQIUhnvYJere1LBYGDsW?usp=sharing) for colon, pancreas, liver and kidney tumor segmentation. Here are the links for the original datasets
