@@ -12,8 +12,8 @@ We used four public [datasets](https://drive.google.com/drive/folders/13uGNb2WQh
 
 **Installation**
 ```
-conda create -n promise python=3.9
-conda activate promise
+conda create -n prism python=3.9
+conda activate prism
 (Optional): sudo install git
 pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113 # install pytorch
 pip install git+https://github.com/facebookresearch/segment-anything.git # install segment anything packages
