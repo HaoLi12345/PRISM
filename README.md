@@ -33,7 +33,7 @@ pip install -r requirements.txt
 **Train**
 
 ```
-python train.py --data colon --data_dir your_data_directory --max_epoch --save_name test123 --num_clicks 50 --num_clicks_validation 10 --iter_nums 11 --multiple_outputs --dynamic --use_box --refine
+python train.py --data colon --data_dir your_data_directory --max_epoch 200 --save_name test123 --num_clicks 50 --num_clicks_validation 10 --iter_nums 11 --multiple_outputs --dynamic --use_box --refine
 ```
 
 
