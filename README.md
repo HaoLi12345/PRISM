@@ -22,5 +22,5 @@ pip install -r requirements.txt
 ```
 
 
-**Installation**
+**FAQ**
 if you got the error as AttributeError: module 'cv2' has no attribute 'ximgproc', please check [this](https://stackoverflow.com/questions/57427233/module-cv2-cv2-has-no-attribute-ximgproc) out
