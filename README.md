@@ -20,3 +20,7 @@ pip install git+https://github.com/facebookresearch/segment-anything.git # insta
 pip install git+https://github.com/deepmind/surface-distance.git # for normalized surface dice (NSD) evaluation
 pip install -r requirements.txt
 ```
+
+
+**Installation**
+if you got the error as AttributeError: module 'cv2' has no attribute 'ximgproc', please check [this](https://stackoverflow.com/questions/57427233/module-cv2-cv2-has-no-attribute-ximgproc) out
