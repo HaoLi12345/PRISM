@@ -3,7 +3,7 @@ PRISM: A Promptable and Robust Interactive Segmentation Model with Visual Prompt
 
 **News**
 
-This repo is underconstruction
+This repository is under construction
 
 **Datasets**
 
