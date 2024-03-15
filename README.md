@@ -38,11 +38,11 @@ python train.py --data colon --data_dir your_data_directory --max_epoch 200 --sa
 
 
 **Train (Distributed Data Parallel)**
-
+the only difference between this and above (train) command is the use of "--ddp".
 ```
 python train.py --data colon --data_dir your_data_directory --max_epoch 200 --save_name test123 --num_clicks 50 --num_clicks_validation 10 --iter_nums 11 --multiple_outputs --dynamic --use_box --refine --ddp
 ```
-the only difference between this and above command is the use of "--ddp".
+
 
 
 
