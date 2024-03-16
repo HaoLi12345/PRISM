@@ -45,7 +45,9 @@ The anatomical differences among individuals and ambiguous boundaries are presen
 | [Download](https://drive.google.com/drive/u/1/folders/1nPUC0cCsyA_w-tKkhL_Bw7lesBorGzCl) |[Download](https://drive.google.com/drive/u/1/folders/1JPiF7wtSnbFdl0ZLmFQt1b4H-XH4FDrM)| [Download](https://drive.google.com/drive/u/1/folders/1JAFOca1FxWebzZjRa1lKo1OAv0HXqeh6) |[Download](https://drive.google.com/drive/u/1/folders/1sN0HQLM-LfWB5Kp119YwMsZIfv3VJj7S)|
 
 
-## Installation
+## Get Started
+
+**Installation**
 ```
 conda create -n prism python=3.9
 conda activate prism
@@ -72,7 +74,6 @@ python train.py --data colon --data_dir your_data_directory --max_epoch 200 --sa
 
 
 
-
 **Test**
 
 put downloaded pretrained model under the implementation directory
@@ -83,9 +84,17 @@ python test.py --data colon --data_dir your_data_directory --split test --checkp
 
 
 
-
 **FAQ**
 
 if you got the error as AttributeError: module 'cv2' has no attribute 'ximgproc', please check [this](https://stackoverflow.com/questions/57427233/module-cv2-cv2-has-no-attribute-ximgproc) out
 
 DDP mode has lower Dice and more epoch numbers may solve it
+
+
+
+## Acknowledgements
+
++ [SAM](https://github.com/facebookresearch/segment-anything)
++ [SAM-Med3D](https://github.com/uni-medical/SAM-Med3D)
++ [ProMISe](https://github.com/HaoLi12345/PRISM)
++ [nnU-Net](https://github.com/MIC-DKFZ/nnUNet)
