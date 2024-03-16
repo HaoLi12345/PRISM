@@ -3,7 +3,8 @@ PRISM: A **P**romptable and **R**obust **I**nteractive **S**egmentation **M**ode
 
 
 
-**What is PRISM?**
+## What is PRISM?
+![PRISM](figs/framework_v1.png)
 
 PRISM is a robust model/method for interactive segmentation in medical imaging. We strive for human-level performance, as a human-in-loop interactive segmentation model with prompts should gradually refine its outcomes until they closely match inter-rater variability. 
 
