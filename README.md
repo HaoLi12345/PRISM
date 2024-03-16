@@ -14,10 +14,13 @@ reduce the number of arguments
 online demo with gradio
 
 ## Datasets
-- our preprocessed
-We used four public tumor [datasets](https://drive.google.com/drive/folders/13uGNb2WQhSQcBQIUhnvYJere1LBYGDsW?usp=sharing) in [colon](https://drive.google.com/drive/u/1/folders/1bt17794HCZfmJ2MLh5w0Y_IAJyUj6ti2), [pancreas](https://drive.google.com/drive/u/1/folders/1NncGDG5Cu795WJTmBse-Lm0GrJmtvTdc), [liver](https://drive.google.com/drive/u/1/folders/1vDM2VkNAT5dvFX5XTRhPe6b7zwYWqU_U) and [kidney](https://drive.google.com/drive/u/1/folders/12UDho-JEZHfK1c1laD5dBFNxvJumcoDF). 
-- original
-Here are the links for the datasets: [MSD-colon](http://medicaldecathlon.com/), [MSD-pancreas](http://medicaldecathlon.com/), [LiTS2017](https://competitions.codalab.org/competitions/17094) and [KiTS2021](https://kits-challenge.org/kits21/).
+- Our preprocessed
+  
+     We used four public tumor [datasets](https://drive.google.com/drive/folders/13uGNb2WQhSQcBQIUhnvYJere1LBYGDsW?usp=sharing) in [colon](https://drive.google.com/drive/u/1/folders/1bt17794HCZfmJ2MLh5w0Y_IAJyUj6ti2), [pancreas](https://drive.google.com/drive/u/1/folders/1NncGDG5Cu795WJTmBse-Lm0GrJmtvTdc), [liver](https://drive.google.com/drive/u/1/folders/1vDM2VkNAT5dvFX5XTRhPe6b7zwYWqU_U) and [kidney](https://drive.google.com/drive/u/1/folders/12UDho-JEZHfK1c1laD5dBFNxvJumcoDF). 
+
+- Original
+ 
+     Here are the links for the datasets: [MSD-colon](http://medicaldecathlon.com/), [MSD-pancreas](http://medicaldecathlon.com/), [LiTS2017](https://competitions.codalab.org/competitions/17094) and [KiTS2021](https://kits-challenge.org/kits21/).
 
 
 
