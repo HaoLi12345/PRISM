@@ -16,7 +16,7 @@ online demo with gradio
 ## Datasets
 - Our preprocessed
   
-     We used four public tumor [datasets](https://drive.google.com/drive/folders/13uGNb2WQhSQcBQIUhnvYJere1LBYGDsW?usp=sharing) in [colon](https://drive.google.com/drive/u/1/folders/1bt17794HCZfmJ2MLh5w0Y_IAJyUj6ti2), [pancreas](https://drive.google.com/drive/u/1/folders/1NncGDG5Cu795WJTmBse-Lm0GrJmtvTdc), [liver](https://drive.google.com/drive/u/1/folders/1vDM2VkNAT5dvFX5XTRhPe6b7zwYWqU_U) and [kidney](https://drive.google.com/drive/u/1/folders/12UDho-JEZHfK1c1laD5dBFNxvJumcoDF). 
+     We used four public [datasets](https://drive.google.com/drive/folders/13uGNb2WQhSQcBQIUhnvYJere1LBYGDsW?usp=sharing) for 3D tumor segmentation in [colon](https://drive.google.com/drive/u/1/folders/1bt17794HCZfmJ2MLh5w0Y_IAJyUj6ti2), [pancreas](https://drive.google.com/drive/u/1/folders/1NncGDG5Cu795WJTmBse-Lm0GrJmtvTdc), [liver](https://drive.google.com/drive/u/1/folders/1vDM2VkNAT5dvFX5XTRhPe6b7zwYWqU_U) and [kidney](https://drive.google.com/drive/u/1/folders/12UDho-JEZHfK1c1laD5dBFNxvJumcoDF). 
 
 - Original
  
