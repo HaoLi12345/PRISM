@@ -15,7 +15,7 @@ online demo with gradio
 
 ## PRISM tumor segmentation examples
 
-![Alt text](figs/iterative_results.png?raw=true "Title")
+![Alt text](figs/iterative_results.pdf?raw=true "Title")
 
 
 ## Datasets
