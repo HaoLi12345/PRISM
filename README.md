@@ -33,7 +33,7 @@ Qualitative results with compared methods | ![qualitative_results](figs/qualitat
 
 
 ## Datasets
-The anatomical differences among individuals and ambiguous boundaries are present.
+The anatomical differences among individuals and ambiguous boundaries are present in the datasets.
 
 - Our preprocessed
   
