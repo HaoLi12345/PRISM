@@ -13,6 +13,10 @@ reduce the number of arguments
 
 online demo with gradio
 
+## PRISM tumor segmentation examples
+
+![Alt text](figs/iterative_results.png?raw=true "Title")
+
 ## Datasets
 - Our preprocessed
   
