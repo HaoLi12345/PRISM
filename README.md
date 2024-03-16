@@ -42,7 +42,7 @@ The anatomical differences among individuals and ambiguous boundaries are presen
 
 
 ## Models
-| colon | pancreas | liver | kidnet |
+| colon | pancreas | liver | kidney |
 |------------------------------|------------------------------|------------------------------|------------------------------|
 | [Download](https://drive.google.com/drive/u/1/folders/1nPUC0cCsyA_w-tKkhL_Bw7lesBorGzCl) |[Download](https://drive.google.com/drive/u/1/folders/1JPiF7wtSnbFdl0ZLmFQt1b4H-XH4FDrM)| [Download](https://drive.google.com/drive/u/1/folders/1JAFOca1FxWebzZjRa1lKo1OAv0HXqeh6) |[Download](https://drive.google.com/drive/u/1/folders/1sN0HQLM-LfWB5Kp119YwMsZIfv3VJj7S)|
 
