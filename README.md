@@ -14,7 +14,9 @@ reduce the number of arguments
 online demo with gradio
 
 ## PRISM tumor segmentation examples
-Quantitative results is avaliable in paper (provide a link). Briefly, PRISM produces tumor segmentation with mean Dice values of 93.79 (colon), 94.48 (pancreas), 94.18 (liver), and 96.58 (kidney).
+Quantitative results is avaliable in paper (provide a link). 
+
+Briefly, PRISM produces tumor segmentation with mean Dice values of **93.79 (colon), 94.48 (pancreas), 94.18 (liver), and 96.58 (kidney)**.
 
   |   |   |
 :-------------------------:|:-------------------------:
