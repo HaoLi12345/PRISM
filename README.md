@@ -99,7 +99,7 @@ DDP mode has lower Dice and more epoch numbers may solve it
 + [ProMISe](https://github.com/HaoLi12345/PRISM)
 + [nnU-Net](https://github.com/MIC-DKFZ/nnUNet)
 
-If you're using PRISM in your research or applications, please cite using this BibTeX:
+If you find this repository useful, please consider citing this paper:
 ```
 @article{li2023promise,
   title={Promise: Prompt-driven 3D Medical Image Segmentation Using Pretrained Image Foundation Models},
@@ -108,3 +108,4 @@ If you're using PRISM in your research or applications, please cite using this B
   year={2023}
 }
 ```
+Please shot an email to hao.li.1@vanderbilt.edu for any questions and always happy to help! :)
