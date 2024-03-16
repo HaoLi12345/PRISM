@@ -60,3 +60,5 @@ python test.py --data colon --data_dir your_data_directory --split test --checkp
 **FAQ**
 
 if you got the error as AttributeError: module 'cv2' has no attribute 'ximgproc', please check [this](https://stackoverflow.com/questions/57427233/module-cv2-cv2-has-no-attribute-ximgproc) out
+
+DDP mode has lower Dice and more epoch numbers may solve it
