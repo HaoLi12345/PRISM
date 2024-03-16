@@ -15,9 +15,13 @@ online demo with gradio
 
 ## PRISM tumor segmentation examples
 
-![Alt text](figs/iterative_results.pdf?raw=true "Title")
+  |   |   |
+:-------------------------:|:-------------------------:
+Iterative correction for colon tumor | ![iterative_colon](figs/iterative_results.png)
+Iterative correction for multiple tumors | ![iterative_all](figs/iterative_results_supp.png)
+Qualitative results with compared methods | ![qualitative_results](figs/qualitative_results.png)
 
-![point-prompt](figs/iterative_results.png)
+Quantitative results is avaliable in paper
 ## Datasets
 - Our preprocessed
   
