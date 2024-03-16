@@ -98,3 +98,13 @@ DDP mode has lower Dice and more epoch numbers may solve it
 + [SAM-Med3D](https://github.com/uni-medical/SAM-Med3D)
 + [ProMISe](https://github.com/HaoLi12345/PRISM)
 + [nnU-Net](https://github.com/MIC-DKFZ/nnUNet)
+
+If you're using PRISM in your research or applications, please cite using this BibTeX:
+```
+@article{li2023promise,
+  title={Promise: Prompt-driven 3D Medical Image Segmentation Using Pretrained Image Foundation Models},
+  author={Li, Hao and Liu, Han and Hu, Dewei and Wang, Jiacheng and Oguz, Ipek},
+  journal={arXiv preprint arXiv:2310.19721},
+  year={2023}
+}
+```
