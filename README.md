@@ -1,5 +1,5 @@
 # PRISM
-PRISM: A Promptable and Robust Interactive Segmentation Model with Visual Prompts
+PRISM: A **P**romptable and **R**obust **I**nteractive **S**egmentation **M**odel with Visual Prompts
 
 
 
