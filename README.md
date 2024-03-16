@@ -17,7 +17,7 @@ online demo with gradio
 
 ![Alt text](figs/iterative_results.pdf?raw=true "Title")
 
-![point-prompt](figs/iterative_results.pdf)
+![point-prompt](figs/iterative_results.png)
 ## Datasets
 - Our preprocessed
   
