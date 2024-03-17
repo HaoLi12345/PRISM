@@ -62,10 +62,8 @@ The anatomical differences among individuals and ambiguous boundaries are presen
 ```
 conda create -n prism python=3.9
 conda activate prism
-# optional
 sudo install git
 pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113 # install pytorch
-# optional
 pip install git+https://github.com/facebookresearch/segment-anything.git # install segment anything packages
 pip install git+https://github.com/deepmind/surface-distance.git # for normalized surface dice (NSD) evaluation
 pip install -r requirements.txt
@@ -122,4 +120,4 @@ If you find this repository useful, please consider citing this paper:
   year={2023}
 }
 ```
-Please shot an email to hao.li.1@vanderbilt.edu for any questions and always happy to help! :)
+Please send an email to hao.li.1@vanderbilt.edu for any questions and always happy to help! :)
