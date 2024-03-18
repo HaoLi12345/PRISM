@@ -17,7 +17,6 @@ def get_dataloader(args, split='', use_small=False):
         split=split,
         transform=transforms,
         image_size=args.image_size,
-        use_small=use_small,
         args=args,
     )
 

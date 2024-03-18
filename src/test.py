@@ -34,8 +34,7 @@ class Tester(object):
         self.args = args
         self.logger = logger
 
-        use_small = True if self.args.use_small_dataset else False
-        self.val_data = get_dataloader(args, split='test', use_small=use_small)
+        self.val_data = get_dataloader(args, split='test')
 
         a = time.time()
         print('loading models and setting up')
@@ -172,7 +171,6 @@ class Tester(object):
         return dice_summary
 
     def validater(self, epoch_num):
-        patch_size = self.args.rand_crop_size[0]
         device = self.args.device
         with torch.no_grad():
             loss_summary, nsd_summary = [], []
@@ -371,8 +369,8 @@ class Tester(object):
 
         return batch_points, batch_labels
 
-    def get_points(self, prev_masks, gt3D, gt3D_box):
-        batch_points, batch_labels = self.get_next_click3D_torch_2(prev_masks, gt3D)
+    def get_points(self, prev_masks, label):
+        batch_points, batch_labels = self.get_next_click3D_torch_2(prev_masks, label)
 
         points_co = torch.cat(batch_points, dim=0).to(self.args.device)
         points_la = torch.cat(batch_labels, dim=0).to(self.args.device)
@@ -380,20 +378,12 @@ class Tester(object):
         self.click_points.append(points_co)
         self.click_labels.append(points_la)
 
-        points_multi = torch.cat(self.click_points, dim=1).to(self.args.device)
-        labels_multi = torch.cat(self.click_labels, dim=1).to(self.args.device)
-
-        # if self.args.multi_click:
-        #     points_input = points_multi
-        #     labels_input = labels_multi
-        # else:
         points_input = points_co
         labels_input = points_la
 
-        bbox_coords = _bbox_mask(gt3D_box[:, 0, :]).to(self.args.device) if self.args.use_box else None
-        # bbox_coords[bbox_coords>0] = 0
+        bbox_coords = _bbox_mask(label[:, 0, :]).to(self.args.device) if self.args.use_box else None
         return points_input, labels_input, bbox_coords
-        #return points_multi, labels_multi
+
 
     def batch_forward(self, sam_model, features, image_embedding, image, prev_masks, points=None, boxes=None):
         prev_masks = F.interpolate(prev_masks, scale_factor=0.25)
@@ -408,41 +398,26 @@ class Tester(object):
             image_embeddings=image_embedding.to(self.args.device)
         )
 
-        mask, mask_refine = sam_model.mask_decoder(
+        mask, pred_dice = sam_model.mask_decoder(
             prompt_embeddings=new_point_embedding,  # (B, 2, 256)
             image_embeddings=new_image_embedding,  # (B, 256, 64, 64)
             feature_list=features,
-            image_level_features=None,
-            image=image, points=[self.click_points, self.click_labels] if self.args.refine and self.args.refine_test else []
         )
 
-        return mask, mask_refine
+        return mask, pred_dice
 
-    def interaction(self, sam_model, image, gt3D):
+    def interaction(self, sam_model, image, label):
         image_embedding, feature_list = self.sam.image_encoder(image)
 
         self.click_points = []
         self.click_labels = []
-        prev_masks = torch.zeros_like(gt3D).to(gt3D.device)
+        prev_masks = torch.zeros_like(label).to(label.device)
         for iter_num in range(self.args.iter_nums):
             prev_masks_sigmoid = torch.sigmoid(prev_masks) if iter_num > 0 else prev_masks
 
-            if self.args.init_learning and iter_num == 0:
-                boundary, margin, content = boundary_selection.find_boundary_map(gt3D)
-                use_content = True
-                for batch_index in range(gt3D.size(0)):
-                    if torch.count_nonzero(content[batch_index]) < self.args.num_clicks:
-                        use_content = False
-                if use_content:
-                    label_sample = content
-                else:
-                    label_sample = gt3D
-            else:
-                label_sample = gt3D
-
-            points_input, labels_input, bbox_input = self.get_points(prev_masks_sigmoid, label_sample, gt3D)
+            points_input, labels_input, bbox_input = self.get_points(prev_masks_sigmoid, label)
             mask, pred_dice = self.batch_forward(sam_model, feature_list, image_embedding, image, prev_masks, points=[points_input, labels_input], boxes=bbox_input)
-            # prev_masks = self.batch_forward(sam_model, feature_list, image_embedding, image, prev_masks, points=None)
+
             if self.args.multiple_outputs:
                 pred_best_dice, pred_dice_max_index = torch.max(pred_dice, dim=1)
                 mask_best = mask[:, pred_dice_max_index, :]
@@ -452,13 +427,13 @@ class Tester(object):
             if self.args.refine and self.args.refine_test:
                 mask_refine, error_map = self.sam.mask_decoder.refine(image, mask_best, [self.click_points, self.click_labels], mask_best.detach())
                 print('dice before refine {} and after {}'.format(
-                    self.get_dice_score(torch.sigmoid(mask_best), gt3D),
-                    self.get_dice_score(torch.sigmoid(mask_refine), gt3D))
+                    self.get_dice_score(torch.sigmoid(mask_best), label),
+                    self.get_dice_score(torch.sigmoid(mask_refine), label))
                 )
                 mask_best = mask_refine
 
             prev_masks = mask_best
-            dice = self.get_dice_score(torch.sigmoid(prev_masks).cpu().numpy(), gt3D.cpu().numpy())
+            dice = self.get_dice_score(torch.sigmoid(prev_masks).cpu().numpy(), label.cpu().numpy())
             print('---')
             print(f'Dice: {dice:.4f}, pred_dice: {pred_best_dice}, label: {labels_input}')
 
@@ -476,8 +451,6 @@ class Tester(object):
         return_loss = 0
         prev_masks = torch.zeros_like(label, dtype=torch.float).to(label.device)
         for iter_num in range(iter_nums):
-            loss = 0
-            scale_factor = (iter_num + 1) if self.args.scale_loss else 1
             prev_masks_sigmoid = torch.sigmoid(prev_masks) if iter_num > 0 else prev_masks
 
             if self.args.init_learning and iter_num == 0:
@@ -494,16 +467,15 @@ class Tester(object):
                 label_sample = label
 
             points_input, labels_input, box_input = self.get_points(prev_masks_sigmoid, label_sample, label)
-            mask, iou_pred = self.batch_forward(sam_model, feature_list, image_embedding, image, prev_masks, points=[points_input, labels_input], boxes=box_input)
+            mask, dice_pred = self.batch_forward(sam_model, feature_list, image_embedding, image, prev_masks, points=[points_input, labels_input], boxes=box_input)
 
             # ========================================================
             if self.args.multiple_outputs:
-                iou_pred_best, max_label_index = torch.max(iou_pred, dim=1)
+                dice_pred_best, max_label_index = torch.max(dice_pred, dim=1)
                 mask_list = [mask[i, max_label_index[i], :].unsqueeze(0) for i in range(mask.size(0))]
                 mask_best = torch.stack(mask_list, dim=0)
             else:
                 mask_best = mask
-                iou_pred_best = iou_pred
 
             # ========================================================
 
@@ -527,7 +499,7 @@ class Tester(object):
         else:
             return return_loss / iter_nums, prev_masks
 
-    def get_dice_score(self, prev_masks, gt3D):
+    def get_dice_score(self, prev_masks, label):
         def compute_dice(mask_pred, mask_gt):
             mask_threshold = 0.5
 
@@ -541,7 +513,7 @@ class Tester(object):
             return 2 * volume_intersect / volume_sum
 
         pred_masks = (prev_masks > 0.5)
-        true_masks = (gt3D > 0)
+        true_masks = (label > 0)
         dice_list = []
         for i in range(true_masks.shape[0]):
             dice_list.append(compute_dice(pred_masks[i], true_masks[i]))
