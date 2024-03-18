@@ -9,9 +9,8 @@ The [pretrained PRISM](https://drive.google.com/drive/u/1/folders/1B6Df44Gd9PEBG
 
 ## TODO
 
-reduce the number of arguments
 
-online demo with gradio
+demo (gradio)
 
 
 
