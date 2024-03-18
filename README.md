@@ -102,7 +102,7 @@ if you got the error as AttributeError: module 'cv2' has no attribute 'ximgproc'
 
 DDP mode has lower Dice and more epoch numbers may solve it
 
-
+On my end, combining trainer and trainer_basic speeds up
 
 ## Acknowledgements
 
