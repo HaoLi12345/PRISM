@@ -102,6 +102,8 @@ DDP mode has lower Dice and more epoch numbers may solve it
 
 On my end, combining trainer and trainer_basic speeds up
 
+training the model without refine module (as we reported in the paper) has better accuracy than with refine but not using it
+
 ## Acknowledgements
 
 + [SAM](https://github.com/facebookresearch/segment-anything)
