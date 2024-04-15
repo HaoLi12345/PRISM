@@ -107,7 +107,7 @@ training the model without refine module (as we reported in the paper) has bette
 
 ## License
 
-The model is licensed under the [Apache 2.0 license](LICENSE).
+The model is licensed under the [Apache 2.0 license](LICENSE)
 
 
 ## Acknowledgements
