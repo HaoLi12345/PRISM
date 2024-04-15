@@ -104,6 +104,12 @@ On my end, combining trainer and trainer_basic speeds up
 
 training the model without refine module (as we reported in the paper) has better accuracy than with refine but not using it
 
+
+## License
+
+The model is licensed under the [Apache 2.0 license](LICENSE).
+
+
 ## Acknowledgements
 
 + [SAM](https://github.com/facebookresearch/segment-anything)
